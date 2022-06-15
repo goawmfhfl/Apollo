@@ -3,10 +3,10 @@ const typeDefs = require("./schema");
 
 const mocks = {
   Query: () => ({
-    tracksForHome: () => [...new Array(9)],
+    tracksForHome: () => [...new Array(12)],
   }),
   Track: () => ({
-    id: () => "track_01",
+    id: () => new Date(),
     title: () => "Astro Kitty, Space Explorer",
     author: () => {
       return {
@@ -22,7 +22,7 @@ const mocks = {
   }),
 };
 
-const server = new ApolloServer({ typeDefs, mocks: true });
+const server = new ApolloServer({ typeDefs, mocks });
 
 server.listen().then(() => {
   console.log(`서버가 달립니다 !! server is running`);
